@@ -15,8 +15,9 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        $schedule->command('user:notify')->everyMinute()->runInBackground();
-        $schedule->command('websockets:serve')->monthly()->runInBackground();
+        // $schedule->command('user:notify')->everyMinute()->runInBackground();
+        // $schedule->command('websockets:serve')->everyMinute()->runInBackground();
+        $schedule->command('optimize')->everyMinute();
     }
 
     /**
