@@ -24,3 +24,6 @@ Route::put('/follow-up-update/{id}', [\App\Http\Controllers\ReminderController::
 Route::post('/follow-up-by-user', [\App\Http\Controllers\ReminderController::class, 'show']);
 Route::post('/follow-up-deactivate/{id}', [\App\Http\Controllers\ReminderController::class, 'destroy']);
 Route::get('/follow', [\App\Http\Controllers\ReminderController::class, 'broadcast']);
+Route::post('/user-details', [\App\Http\Controllers\ReminderController::class, 'get_user_details']);
+
+Route::get('/notifications-list', [\App\Http\Controllers\ReminderController::class, 'notify_list']);

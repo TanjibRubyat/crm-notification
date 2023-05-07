@@ -27,6 +27,17 @@ class ReminderController extends Controller
         }
     }
 
+    public function get_user_details(Request $request)
+    {
+        // dd($request->user_id);
+        $follow_up = FollowUp::where('user_id', $request->user_id)->get();
+        // dd(json_encode($follow_up));
+        return response()->json([
+            'message' => 'success',
+            'data' => json_encode($follow_up)
+        ]);
+    }
+
     public function broadcast(Request $request)
     {
         // $message = 'You have a meeting at' . ' ' . '3:00';
@@ -83,6 +94,15 @@ class ReminderController extends Controller
                 'status' => 404,
             ]);
         }
+    }
+
+    public function notify_list(Request $request)
+    {
+        // dd($request->user_id);
+        $data = FollowUp::where('user_id', $request->user_id)->get();
+        return response()->json([
+            'data' => json_decode($data)
+        ]);
     }
 
     /**
